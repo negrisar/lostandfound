@@ -1,0 +1,88 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="WebApplication1.SiteMaster" %>
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head runat="server">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Divan Kayıp Eşya</title>
+
+
+    <asp:PlaceHolder runat="server">
+        <%: Scripts.Render("~/bundles/modernizr") %>
+    </asp:PlaceHolder>
+
+    <webopt:BundleReference runat="server" Path="~/Content/css" />
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <link rel="stylesheet" type="text/css" href="ReportStyle.css" />
+    <style type="text/css">
+        .auto-style32 {
+            display: block;
+            font-size: var(--bs-nav-link-font-size);
+            font-weight: var(--bs-nav-link-font-weight);
+            color: var(--bs-nav-link-color);
+            text-decoration: none;
+            transition: none;
+        }
+    </style>
+    <script type="text/javascript">
+        window.history.forward();
+        function noBack() {
+            window.history.forward();
+        }
+    </script>
+
+</head>
+<body onload="noBack();" onpageshow="if (event.persisted) noBack();" onunload="">
+    <form runat="server">
+        <asp:ScriptManager runat="server">
+            <Scripts>
+                <%--To learn more about bundling scripts in ScriptManager see https://go.microsoft.com/fwlink/?LinkID=301884 --%>
+                <%--Framework Scripts--%>
+                <asp:ScriptReference Name="MsAjaxBundle" />
+                <asp:ScriptReference Name="jquery" />
+                <asp:ScriptReference Name="WebForms.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebForms.js" />
+                <asp:ScriptReference Name="WebUIValidation.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebUIValidation.js" />
+                <asp:ScriptReference Name="MenuStandards.js" Assembly="System.Web" Path="~/Scripts/WebForms/MenuStandards.js" />
+                <asp:ScriptReference Name="GridView.js" Assembly="System.Web" Path="~/Scripts/WebForms/GridView.js" />
+                <asp:ScriptReference Name="DetailsView.js" Assembly="System.Web" Path="~/Scripts/WebForms/DetailsView.js" />
+                <asp:ScriptReference Name="TreeView.js" Assembly="System.Web" Path="~/Scripts/WebForms/TreeView.js" />
+                <asp:ScriptReference Name="WebParts.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebParts.js" />
+                <asp:ScriptReference Name="Focus.js" Assembly="System.Web" Path="~/Scripts/WebForms/Focus.js" />
+                <asp:ScriptReference Name="WebFormsBundle" />
+                <%--Site Scripts--%>
+            </Scripts>
+        </asp:ScriptManager>
+
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm bg-light">
+            <div class="container" style="margin-right:160px; margin-left:82px">
+                <div class="navbar-brand">
+                    <img src="https://classification.divan.com.tr/divanlogo.jpg" style="margin-left: 3rem; margin-right: 2rem; width: 80px; height: auto" />
+                </div>
+                <div style="font-size: larger; margin-right: 2rem; color: rgb(0 0 0 / 70%)">Divan Kayıp Eşya</div>
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" title="Toggle navigation" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item"><a class="nav-link" runat="server" href="~/View/ReportPage">Rapor</a></li>
+                        <li class="nav-item"><a class="nav-link" runat="server" href="~/View/Silinenler">Silinenler</a></li>
+                        <li class="nav-item"><a class="nav-link" runat="server" href="~/View/KayipEsyaVeriGirisi">Kayıp Eşya Veri Girişi</a></li>
+                        <li id="yetkiVerme" class="nav-item" runat="server"><a class="nav-link" runat="server" href="~/View/Yetkilendirme">Yetkilendirme</a></li>
+                        <li class="nav-item ms-md-auto"><a class="nav-link" runat="server" href="~/View/Login"><asp:LinkButton runat="server" ID="LogoutButton" CssClass="auto-style32" OnClick="LogoutButton_Click">Çıkış Yap</asp:LinkButton></a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <div class="container body-content">
+            <asp:ContentPlaceHolder ID="MainContent" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+    </form>
+    <asp:PlaceHolder runat="server">
+        <%: Scripts.Render("~/Scripts/bootstrap.js") %>
+    </asp:PlaceHolder>
+</body>
+</html>
